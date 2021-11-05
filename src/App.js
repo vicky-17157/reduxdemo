@@ -3,10 +3,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect
+  Redirect,
 } from 'react-router-dom'
-
-
 
 import DashboardPage from './pages/DashboardPage'
 import PostsPage from './pages/PostPage'
