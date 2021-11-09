@@ -1,34 +1,34 @@
 // Create Redux action types
-export const GET_POSTS = 'GET_POSTS'
-export const GET_POSTS_SUCCESS = 'GET_POSTS_SUCCESS'
-export const GET_POSTS_FAILURE = 'GET_POSTS_FAILURE'
+export const GET_DEMOS = 'GET_DEMOS'
+export const GET_DEMOS_SUCCESS = 'GET_DEMOS_SUCCESS'
+export const GET_DEMOS_FAILURE = 'GET_DEMOS_FAILURE'
 
 // Create Redux action creators that return an action
-export const getPosts = () => ({
-    type: GET_POSTS,
+export const getDemos = () => ({
+    type: GET_DEMOS,
   })
   
-  export const getPostsSuccess = (posts) => ({
-    type: GET_POSTS_SUCCESS,
-    payload: posts,
+  export const getDemosSuccess = (demos) => ({
+    type: GET_DEMOS_SUCCESS,
+    payload: demos,
   })
   
-  export const getPostsFailure = () => ({
-    type: GET_POSTS_FAILURE,
+  export const getDemosFailure = () => ({
+    type: GET_DEMOS_FAILURE,
   })
 
   // Combine them all in an asynchronous thunk
-export function fetchPosts() {
+export function fetchDemos() {
     return async (dispatch) => {
-      dispatch(getPosts())
+      dispatch(getDemos())
   
       try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/posts')
+        const response = await fetch('https://jsonplaceholder.typicode.com/photos')
         const data = await response.json()
   
-        dispatch(getPostsSuccess(data))
+        dispatch(getDemosSuccess(data))
       } catch (error) {
-        dispatch(getPostsFailure())
+        dispatch(getDemosFailure())
       }
     }
   }

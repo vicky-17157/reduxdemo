@@ -1,33 +1,33 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 
-import { fetchPosts } from '../actions/postact'
-import { Post } from '../components/Post'
+import { fetchDemos } from '../actions/postact'
+import { Demo } from '../components/post'
 
-const PostsPage = ({ dispatch, loading, posts, hasErrors }) => {
+const DemosPage = ({ dispatch, loading, demos, hasErrors }) => {
   useEffect(() => {
-    dispatch(fetchPosts())
+    dispatch(fetchDemos())
   }, [dispatch])
 
   // Show loading, error, or success state
-  const renderPosts = () => {
-    if (loading) return <p>Loading posts...</p>
-    if (hasErrors) return <p>Unable to display posts.</p>
-    return posts.map((post) => <Post key={post.id} post={post} />)
+  const renderDemos = () => {
+    if (loading) return <p>Loading demos...</p>
+    if (hasErrors) return <p>Unable to display demos.</p>
+    return demos.map((demo) => <Demo key={demo.id} demo={demo} />)
   }
 
   return (
     <section>
-      <h1>Posts</h1>
-      {renderPosts()}
+      <h1>Demos</h1>
+      {renderDemos()}
     </section>
   )
 }
 
 const mapStateToProps = (state) => ({
-  loading: state.posts.loading,
-  posts: state.posts.posts,
-  hasErrors: state.posts.hasErrors,
+  loading: state.demos.loading,
+  demos: state.demos.demos,
+  hasErrors: state.demos.hasErrors,
 })
 
-export default connect(mapStateToProps)(PostsPage)
+export default connect(mapStateToProps)(DemosPage)

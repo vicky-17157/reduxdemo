@@ -3,18 +3,18 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect,
+  Redirect, 
 } from 'react-router-dom'
 
-import DashboardPage from './pages/DashboardPage'
-import PostsPage from './pages/PostPage'
+import DashboardPage from './pages/dashboardpage'
+import DemosPage from './pages/postpages'
 
 const App = () => {
   return (
     <Router>
       <Switch>
         <Route exact path="/" component={DashboardPage} />
-        <Route exact path="/posts" component={PostsPage} />
+        <Route exact path="/demos" component={DemosPage} />
         <Redirect to="/" />
       </Switch>
     </Router>
